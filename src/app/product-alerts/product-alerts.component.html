@@ -1,0 +1,6 @@
+<p *ngIf="product && product.price > 700">
+  <!--on click the button will emit a change to the notify property promtpting a window alert-->
+  <button type="button" (click)="notify.emit()">
+    Notify Me
+  </button>
+</p>

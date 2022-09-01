@@ -1,5 +1,38 @@
 <h2>Products</h2>
 
+<!--*ngFor is a directive that renders a template for each item in a collection
+      in this case for each product in the products list -->
+<div *ngFor="let product of products">
+  <h3> 
+    <!--calling for the name field associated with each product
+        using the title tag we can create a message that pops up when you hover over the link-->
+    <a [title] = "product.name + ' details'">
+    {{ product.name }} 
+    ${{ product.price}}
+    </a>
+  </h3>
+
+  <!--*ngIf == if statement-->
+  <!--if a product has a description display it as well-->
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+  <!--creating a button and binding the click event to the share() function 
+    created in product-list.component.ts-->
+  <button type="button" (click)="share()">
+    Share Product
+  </button>
+
+  <!--display the poduct alert component as a child of the product list componenet-->
+  <!--pass the current products as the input to the component-->
+  <!--also pass notify property so that it displays a message when the button is clicked-->
+  <app-product-alerts 
+    [product]="product"
+    (notify)="onNotify()">
+  </app-product-alerts>
+</div>
+
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
