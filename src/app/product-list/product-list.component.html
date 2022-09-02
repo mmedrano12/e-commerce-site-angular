@@ -6,9 +6,10 @@
   <h3> 
     <!--calling for the name field associated with each product
         using the title tag we can create a message that pops up when you hover over the link-->
-    <a [title] = "product.name + ' details'">
+    <a [title] = "product.name + ' details'"
+       [routerLink]="['/products', product.id]">
     {{ product.name }} 
-    ${{ product.price}}
+    {{ product.price | currency}}
     </a>
   </h3>
 
