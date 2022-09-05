@@ -1,0 +1,11 @@
+<h3>Items In Cart</h3>
+<p>
+    <a routerLink="/shipping">Shipping Prices</a>
+</p>
+<!--
+    for each item in the items array display the name as well as the price.
+-->
+<div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency}}</span>
+</div>
